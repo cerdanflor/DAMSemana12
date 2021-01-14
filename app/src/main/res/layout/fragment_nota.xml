@@ -38,7 +38,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/textViewTitulo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewTitulo"
             app:layout_constraintTop_toTopOf="@+id/textViewTitulo"
             app:srcCompat="@drawable/ic_baseline_star_border_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
