@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NotaFragment extends Fragment {
@@ -65,6 +66,11 @@ public class NotaFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
+            notaList = new ArrayList<>();
+            notaList.add(new Nota("Temas de Examen","Constraint Layout, Drawable, Mobile Navigation", true, android.R.color.holo_blue_light));
+            notaList.add(new Nota("Importante","Matricula onLine 20 y 21 de marzo, por la página de la UNTELS, NO OLVIDAR",false, android.R.color.holo_green_light));
+            notaList.add(new Nota("Cumpleaños","Se viene el cumpleaño de Maritza Vega, será SORPRESA, la fiesta será por meet (Para Italo)", true, android.R.color.holo_orange_light));
+
             adapterNotas = new MyNotaRecyclerViewAdapter(notaList, mListener);
             recyclerView.setAdapter(adapterNotas);
         }
