@@ -13,17 +13,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dam.prueba.dummy.DummyContent;
+import java.util.List;
 
-/**
- * A fragment representing a list of Items.
- */
 public class NotaFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
+    private NotasInteractionListener mListener;
+    private List<Nota> notaList;
+    private MyNotaRecyclerViewAdapter adapterNotas;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -65,10 +65,20 @@ public class NotaFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyNotaRecyclerViewAdapter(DummyContent.ITEMS));
+            adapterNotas = new MyNotaRecyclerViewAdapter(notaList, mListener);
+            recyclerView.setAdapter(adapterNotas);
         }
         return view;
     }
 
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if(context instanceof NotasInteractionListener){
+            mListener = (NotasInteractionListener) context;
+        }else{
+            throw new RuntimeException(context.toString() +
+                    "Debe Implementarse NotasInteractionListener");
+        }
+    }
 }
