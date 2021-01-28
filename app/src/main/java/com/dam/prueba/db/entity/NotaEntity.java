@@ -1,4 +1,4 @@
-package com.dam.prueba;
+package com.dam.prueba.db.entity;
 
 
 import androidx.room.Entity;

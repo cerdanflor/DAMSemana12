@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CL01ConstraintLayout">
         <activity
-            android:name=".DashboardActivity"
+            android:name=".ui.DashboardActivity"
             android:label="@string/title_activity_notas"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

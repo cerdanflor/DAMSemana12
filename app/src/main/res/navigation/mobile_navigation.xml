@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.dam.prueba.NotaFragment"
+        android:name="com.dam.prueba.ui.NotaFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_nota_list" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.dam.prueba.NotaFragment"
+        android:name="com.dam.prueba.ui.NotaFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_nota_list" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.dam.prueba.NotaFragment"
+        android:name="com.dam.prueba.ui.NotaFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_nota_list" />
 </navigation>

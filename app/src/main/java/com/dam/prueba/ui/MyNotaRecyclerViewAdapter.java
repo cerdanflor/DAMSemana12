@@ -1,4 +1,4 @@
-package com.dam.prueba;
+package com.dam.prueba.ui;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.dam.prueba.R;
+import com.dam.prueba.db.entity.NotaEntity;
 
 import java.util.List;
 

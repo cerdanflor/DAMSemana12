@@ -1,7 +1,8 @@
-package com.dam.prueba;
+package com.dam.prueba.ui;
 
 import android.os.Bundle;
 
+import com.dam.prueba.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
