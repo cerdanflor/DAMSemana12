@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 public class NuevaNotaDialogFragment extends DialogFragment {
 
     private NuevaNotaDialogViewModel mViewModel;
+    private View view;
 
     public static NuevaNotaDialogFragment newInstance() {
         return new NuevaNotaDialogFragment();
@@ -52,6 +53,9 @@ public class NuevaNotaDialogFragment extends DialogFragment {
                         // User cancelled the dialog
                     }
                 });
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        view = inflater.inflate(R.layout.nueva_nota_dialog_fragment,null);
+        builder.setView(view);
         // Create the AlertDialog object and return it
         return builder.create();
     }
