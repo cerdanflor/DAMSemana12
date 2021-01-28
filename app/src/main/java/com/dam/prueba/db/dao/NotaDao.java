@@ -1,5 +1,6 @@
 package com.dam.prueba.db.dao;
 
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -25,10 +26,8 @@ public interface NotaDao {
     void deleteById(int idNota);
 
     @Query("SELECT * FROM notas ORDER BY titulo ASC")
-    LiveData<List<NotaEntity>>getAll();
+    LiveData<List<NotaEntity>> getAll();
 
     @Query("SELECT * FROM notas WHERE favorita LIKE 'true'")
     LiveData<List<NotaEntity>> getAllFavoritas();
-
-
 }

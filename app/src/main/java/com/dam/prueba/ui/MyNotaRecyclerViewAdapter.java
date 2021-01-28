@@ -9,15 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dam.prueba.R;
 import com.dam.prueba.db.entity.NotaEntity;
+import com.dam.prueba.R;
 
 import java.util.List;
 
 
 public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecyclerViewAdapter.ViewHolder> {
 
-    private final List<NotaEntity> mValues;
+    private List<NotaEntity> mValues;
     private Context ctx;
 
 
@@ -43,13 +43,18 @@ public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecycl
         }
         holder.ivFavorita.setOnClickListener((v)->{
 
-
         });
     }
 
     @Override
     public int getItemCount() {
         return mValues.size();
+    }
+
+    // Creamos un método, para actualizar el adapter
+    public void setNuevasNotas(List<NotaEntity> nuevasNotas){
+        this.mValues = nuevasNotas;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
