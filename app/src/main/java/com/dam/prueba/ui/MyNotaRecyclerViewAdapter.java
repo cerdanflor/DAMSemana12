@@ -1,5 +1,7 @@
 package com.dam.prueba.ui;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dam.prueba.NuevaNotaDialogViewModel;
 import com.dam.prueba.db.entity.NotaEntity;
 import com.dam.prueba.R;
 
@@ -19,11 +22,13 @@ public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecycl
 
     private List<NotaEntity> mValues;
     private Context ctx;
+    private NuevaNotaDialogViewModel viewModel;
 
 
     public MyNotaRecyclerViewAdapter(List<NotaEntity> items, Context ctx) {
         mValues = items;
         this.ctx = ctx;
+        viewModel = ViewModelProviders.of((AppCompatActivity)ctx).get(NuevaNotaDialogViewModel.class);
     }
 
     @Override
@@ -41,9 +46,20 @@ public class MyNotaRecyclerViewAdapter extends RecyclerView.Adapter<MyNotaRecycl
         if(holder.mItem.isFavorita()){
             holder.ivFavorita.setImageResource(R.drawable.ic_baseline_star_24);
         }
-        holder.ivFavorita.setOnClickListener((v)->{
 
-        });
+       holder.ivFavorita.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               if(holder.mItem.isFavorita()){
+                   holder.mItem.setFavorita(false);
+                   holder.ivFavorita.setImageResource(R.drawable.ic_baseline_star_border_24);
+               }else{
+                   holder.mItem.setFavorita(true);
+                   holder.ivFavorita.setImageResource(R.drawable.ic_baseline_star_24);
+               }
+               viewModel.updateNota(holder.mItem);
+           }
+       });
     }
 
     @Override

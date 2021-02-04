@@ -58,5 +58,28 @@ public class NotaRepository {
             return null;
         }
     }
+    public void update(NotaEntity nota){
+        new updateAsyntask(notaDao).execute(nota);
+    }
+    public static class updateAsyntask extends AsyncTask<NotaEntity, Void, Void>{
+        private NotaDao notaDaoAsynTask;
 
+        // 3. Creamos el constructor
+        // Para instanciar nuestro notaDaoAsynTask con el dao que recibimos
+        updateAsyntask(NotaDao dao){
+            notaDaoAsynTask = dao;
+        }
+
+        // 2. Debemos generar el método doInBakground
+        // Que va a ejecutar la inserción de elementos en la BD en segundo plano
+        @Override
+        protected Void doInBackground(NotaEntity... notaEntities) {
+            // HAcemos el insert del primer parámetro
+            // (Que en realidad es la única)que nos han pasado
+            notaDaoAsynTask.update(notaEntities[0]);
+            return null;
+        }
+
+
+    }
 }
